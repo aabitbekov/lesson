@@ -15,7 +15,7 @@ if debug_str.lower() in ['true', 'yes', '1']:
 else:
     DEBUG = False
     
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS ', '127.0.0.1').split(',')
+ALLOWED_HOSTS = list(os.getenv('DJANGO_ALLOWED_HOSTS'))
 
 
 # Application definition
