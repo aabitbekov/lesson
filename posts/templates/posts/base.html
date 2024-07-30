@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Онлайн Курсы{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'posts/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Онлайн Курсы</h1>
+        </div>
+    </header>
+        {% block content %}
+        {% endblock %}
+    <footer>
+        <p>&copy; 2024 Онлайн Курсы</p>
+    </footer>
+</body>
+</html>

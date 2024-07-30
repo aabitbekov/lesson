@@ -1,0 +1,33 @@
+{% extends 'posts/base.html' %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+    <main>
+        <article>
+            <p>{{ post.content }}</p>
+            <p><strong>Автор:</strong> {{ post.author }}</p>
+            <p><strong>Дата публикации:</strong> {{ post.created_at }}</p>
+        </article>
+        <section>
+            <h2>Комментарии</h2>
+            <ul>
+                {% for comment in post.comments.all %}
+                    <li>
+                        <p><strong>{{ comment.author }}</strong>: {{ comment.content }}</p>
+                        <p>{{ comment.created_at }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <h3>Добавить комментарий</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}
+
+
+

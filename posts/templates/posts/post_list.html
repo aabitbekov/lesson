@@ -1,0 +1,18 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block title %}Список постов{% endblock %}
+
+{% block content %}
+    <main>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <a href="{% url 'posts:post-detail' post.pk %}">{{ post.title }}</a> by {{ post.author }} on {{ post.created_at }}
+            
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
+
+
