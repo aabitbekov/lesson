@@ -9,7 +9,7 @@ class Author(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    author = models.CharField(max_length=100)
+    author = models.ForeignKey(Author, default=None, null=True, on_delete=models.SET_DEFAULT)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
